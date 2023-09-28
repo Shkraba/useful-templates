@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  mongo-container:
+      image: mongo:latest
+      restart: always
+      ports:
+        - '27017:27017'
+      volumes:
+        - mongo_data_container:/data/db
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: password
+volumes:
+  mongo_data_container:
+networks:
+  default:
+    name: mydockernetwork
